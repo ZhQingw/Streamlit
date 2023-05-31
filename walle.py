@@ -18,6 +18,6 @@ pathlib.PosixPath=temp
 uploaded_file = st.file_uploader("Choose an image……", type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
     img = PILImage.create(uploaded_file)
-    st.image(image.to_thumb(500, 500), caption="Your Image")
+    st.image(img.to_thumb(500, 500), caption="Your Image")
     pred, pred_idx, probs = learn_inf.predict(img)
     st.write(f'Prediction:{pred}; Probability:{probs[pred_idx]:.04f}')
